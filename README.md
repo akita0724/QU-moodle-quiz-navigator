@@ -21,8 +21,8 @@ Macbook Proで動作することを確認しています。その他OSでの動�
 
 ## 使用方法
 
-1. 九州大学Moodleのクイズページにアクセス
-2. 拡張機能が自動的に有効になり、使用方法のポップアップが表示されます
+1. 九州大学Moodleの各クイズページにアクセス
+2. 自動で拡張機能が有効になります
 3. キーボードショートカットを使用してクイズを操作
 
 ### キーボードショートカット
@@ -60,7 +60,7 @@ The author is not responsible for any damages resulting from the use of this too
 ## How to Use
 
 1. Access the quiz page on Kyushu University Moodle
-2. The extension will be automatically enabled, and a usage popup will be displayed
+2. The extension will be automatically enabled
 3. Use keyboard shortcuts to operate the quiz
 
 ### Keyboard Shortcuts
