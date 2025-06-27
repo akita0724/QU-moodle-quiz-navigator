@@ -1,0 +1,159 @@
+/* Moodle Quiz Keyboard Navigator Styles */
+
+/* 現在の問題のハイライト */
+.current-question-highlight {
+  border-left: 4px solid #4caf50 !important;
+  background-color: #f8fff8 !important;
+  padding-left: 8px !important;
+}
+
+/* 使用方法ポップアップ */
+#keyboard-nav-instructions {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.keyboard-nav-popup {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  min-width: 250px;
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.keyboard-nav-popup h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.keyboard-nav-popup p {
+  margin: 6px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.keyboard-nav-popup button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.keyboard-nav-popup button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* 一時的なフィードバック */
+.temp-feedback {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 10001;
+  pointer-events: none;
+  animation: feedbackShow 0.3s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes feedbackShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* キーボードショートカットのヒント */
+.keyboard-hint {
+  position: relative;
+}
+
+.keyboard-hint::after {
+  content: attr(data-key);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff5722;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+/* 選択肢のホバー効果を強化 */
+.que .answer label:hover,
+.answer .flex-fill:hover {
+  background-color: #f5f5f5 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+/* アクセシビリティの向上 */
+.que .answer input[type="radio"]:focus+label,
+.que .answer input[type="checkbox"]:focus+label {
+  outline: 2px solid #2196f3 !important;
+  outline-offset: 2px !important;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  #keyboard-nav-instructions {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .keyboard-nav-popup {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .temp-feedback {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
