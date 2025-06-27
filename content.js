@@ -1,4 +1,4 @@
-const origin = "moodle.s.kyushu-u.ac.jp";
+// Moodle Quiz Keyboard Navigator
 
 class MoodleQuizNavigator {
   constructor() {
@@ -27,15 +27,13 @@ class MoodleQuizNavigator {
     this.addKeyboardListener();
     this.addVisualIndicators();
     this.isActive = true;
-
-    console.log("Moodle Quiz Keyboard Navigato Started");
   }
 
   isMoodleQuizPage() {
     // Moodleクイズページの判定
     const url = window.location.href;
     return (
-      url.includes(origin) &&
+      url.includes("moodle.s.kyushu-u.ac.jp") &&
       (url.includes("/mod/quiz/") ||
         document.querySelector(".que") !== null ||
         document.querySelector('[id^="question-"]') !== null)
@@ -223,17 +221,40 @@ class MoodleQuizNavigator {
   }
 
   handleEnter() {
-    // 送信ボタンがある場合
-    const submitButton =
-      document.querySelector('input[type="submit"]') ||
-      document.querySelector('button[type="submit"]') ||
-      document.querySelector(".submitbtns input") ||
-      document.querySelector(".submitbtns button");
+    const submitSelectors = [
+      "#mod_quiz-next-nav", // ID指定（最も確実）
+      'input[name="next"]', // name属性指定
+      'input[value="次のページ"]', // value属性指定
+      ".mod_quiz-next-nav", // class指定
+      // 'input[type="submit"][value*="次"]', // より一般的なパターン
+      'button[value*="次のページ"]', // 従来のパターンも保持
+    ];
+
+    let submitButton = null;
+    for (const selector of submitSelectors) {
+      submitButton = document.querySelector(selector);
+      if (submitButton) {
+        break;
+      }
+    }
 
     if (submitButton) {
       submitButton.click();
     } else if (this.questions.length > 1) {
       this.nextQuestion();
+    } else {
+      // 単一問題の場合、次のページへのリンクを探す
+      const nextLink =
+        document.querySelector('a[href*="page="]:contains("次")') ||
+        document.querySelector('a[href*="page="]') ||
+        document.querySelector('.singlebutton input[type="submit"]');
+
+      if (nextLink) {
+        nextLink.click();
+        this.showTemporaryFeedback("次のページへ");
+      } else {
+        this.showTemporaryFeedback("送信ボタンが見つかりません");
+      }
     }
   }
 
