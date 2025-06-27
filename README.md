@@ -35,15 +35,6 @@
 | `↑` / `↓` | 問題間の移動（複数問題の場合） |
 | `Enter` | 次の問題または送信 |
 
-
-## 技術仕様
-
-- Manifest V3対応
-- Content Scriptによる動的な機能注入
-- main.tsのMoodle HTML解析ロジックを参考にした問題検出
-- アクセシビリティ対応
-
-
 # Moodle Quiz Keyboard Navigator
 ## About
 
@@ -82,9 +73,3 @@ The author is not responsible for any damages resulting from the use of this too
 | `↑` / `↓` | Move between questions (if there are multiple questions) |
 | `Enter` | Next question or Submit |
 
-## Technical Specifications
-
-- Manifest V3 support
-- Dynamic feature injection by Content Script
-- Question detection logic based on Moodle HTML parsing in main.ts
-- Accessibility support
