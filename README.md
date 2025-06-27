@@ -11,7 +11,7 @@
 
 ## インストール方法
 
-1. 右上のCode(緑色)を選択し、`Download ZIP`からダウンロードする
+1. このページ右上のCode(緑色)を選択し、`Download ZIP`からダウンロードする
 2. ダウンロードしたファイルを展開する
 3. Chromeブラウザを開き、`chrome://extensions/` にアクセス
 4. 右上の「デベロッパーモード」を有効にする
@@ -73,3 +73,9 @@ The author is not responsible for any damages resulting from the use of this too
 | `↑` / `↓` | Move between questions (if there are multiple questions) |
 | `Enter` | Next question or Submit |
 
+
+## 開発者向け
+任意のキーマッピングをしたいときは`content.js`107行目付近を変更すれば変えられます。
+
+## 他大学の方向け
+`manifest.json`と`content.js`のドメインの部分を変えればおそらく動作します。（保証はしかねます）
