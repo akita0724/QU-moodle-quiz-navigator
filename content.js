@@ -242,20 +242,21 @@ class MoodleQuizNavigator {
       submitButton.click();
     } else if (this.questions.length > 1) {
       this.nextQuestion();
-    } else {
-      // 単一問題の場合、次のページへのリンクを探す
-      const nextLink =
-        document.querySelector('a[href*="page="]:contains("次")') ||
-        document.querySelector('a[href*="page="]') ||
-        document.querySelector('.singlebutton input[type="submit"]');
-
-      if (nextLink) {
-        nextLink.click();
-        this.showTemporaryFeedback("次のページへ");
-      } else {
-        this.showTemporaryFeedback("送信ボタンが見つかりません");
-      }
     }
+    // } else {
+    //   // 単一問題の場合、次のページへのリンクを探す
+    //   const nextLink =
+    //     // document.querySelector('a[href*="page="]:contains("次")') ||
+    //     document.querySelector('a[href*="page="]') ||
+    //     document.querySelector('.singlebutton input[type="submit"]');
+
+    //   if (nextLink) {
+    //     nextLink.click();
+    //     this.showTemporaryFeedback("次のページへ");
+    //   } else {
+    //     this.showTemporaryFeedback("送信ボタンが見つかりません");
+    //   }
+    // }
   }
 
   addVisualIndicators() {
